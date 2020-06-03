@@ -1,11 +1,11 @@
 from flask import Flask
 app = Flask(__name__)
 
-app.route("/puppies")
+@app.route('/puppies')
 def puppiesFunction():
     return "Yes, puppies"
 
-app.route("<int:id")
+@app.route('/puppies/<int:id>')
 def puppiesFunctionID(id):
     return "This method will act on the puppy with id %s" % id
 
