@@ -4,24 +4,24 @@ app = Flask(__name__)
 
 #Make an app.route() decorator here
 
-@app.route('/puppies', methods=['GET','POST'])
+@app.route('/puppies')
 def puppiesFunction():
   if request.method == 'GET':
-      return getAllPuppies()
+      getAllPuppies()
   elif request.method == 'POST':
-      return makeANewPuppy()
+      makeANewPuppy()
   
   
  
 #Make another app.route() decorator here that takes in an integer id in the 
-@app.route('/puppies/<int:id>', methods=['GET','PUT','DELETE'])
+@app.route('/puppies/<int:id>')
 def puppiesFunctionId(id):
   if request.method == 'GET':
-      return getPuppy(id)  	
+      getPuppy(id)  	
   elif request.method == 'PUT':
-      return updatePuppy(id)
+      updatePuppy(id)
   elif request.method == 'DELETE':
-      return deletePuppy(id)
+      deletePuppy(id)
   	
 
 
@@ -39,8 +39,3 @@ def updatePuppy(id):
 
 def deletePuppy(id):
   return "Removing Puppy with id %s" % id
-
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host='0.0.0.0', port=5000)
